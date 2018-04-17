@@ -1,0 +1,788 @@
+
+<!-- saved from url=(0071)https://facebook.github.io/react-native/docs/textinput.html#placeholder -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>TextInput · React Native</title><meta name="viewport" content="width=device-width"><meta name="generator" content="Docusaurus"><meta property="og:title" content="TextInput · React Native"><meta property="og:type" content="website"><meta property="og:url" content="https://facebook.github.io/react-native/index.html"><meta property="og:description" content="A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad."><link rel="shortcut icon" href="https://facebook.github.io/react-native/img/favicon.png"><link rel="stylesheet" href="./TextInput · React Native_files/docsearch.min.css"><link rel="stylesheet" href="./TextInput · React Native_files/solarized-dark.min.css"><link rel="alternate" type="application/atom+xml" href="https://facebook.github.io/blog/atom.xml" title="React Native Blog ATOM Feed"><link rel="alternate" type="application/rss+xml" href="https://facebook.github.io/blog/feed.xml" title="React Native Blog RSS Feed"><script id="twitter-wjs" src="./TextInput · React Native_files/widgets.js.download"></script><script id="facebook-jssdk" src="./TextInput · React Native_files/sdk.js.download"></script><script async="" src="./TextInput · React Native_files/analytics.js.download"></script><script type="text/javascript" src="./TextInput · React Native_files/embed.js.download"></script><script type="text/javascript" src="./TextInput · React Native_files/codeblocks.js.download"></script><link rel="stylesheet" href="./TextInput · React Native_files/main.css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in{animation-duration:250ms;animation-name:fb_bounce_in}.fb_customer_chat_bounce_out{animation-duration:250ms;animation-name:fb_fade_out}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_fade_out{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_in{0%{opacity:0;transform:scale(.8, .8);transform-origin:100% 100%}10%{opacity:.1}20%{opacity:.2}30%{opacity:.3}40%{opacity:.4}50%{opacity:.5}60%{opacity:.6}70%{opacity:.7}80%{opacity:.8;transform:scale(1.03, 1.03)}90{opacity:.9}100%{opacity:1;transform:scale(1, 1)}}</style></head><body class="sideNavVisible doc"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://facebook.github.io/react-native/"><img class="logo" src="./TextInput · React Native_files/header_logo.png"><h2 class="headerTitle">React Native</h2></a><a href="https://facebook.github.io/react-native/versions.html"><h3>0.54</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_self">Docs</a></li><li class=""><a href="https://facebook.github.io/react-native/en/help.html" target="_self">Community</a></li><li class=""><a href="https://facebook.github.io/react-native/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input type="text" id="search_input_react" placeholder="Search" class="aa-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-labelledby="search_input_react" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, system-ui, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 300; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="aa-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="aa-dataset-1"></div></span></span></li><li class=""><a href="https://github.com/facebook/react-native" target="_self">GitHub</a></li><li class=""><a href="https://reactjs.org/" target="_self">React</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Components</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>The Basics</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/tutorial.html">Learn the Basics</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/props.html">Props</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/state.html">State</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/style.html">Style</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/height-and-width.html">Height and Width</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/flexbox.html">Layout with Flexbox</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/handling-text-input.html">Handling Text Input</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/handling-touches.html">Handling Touches</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/using-a-scrollview.html">Using a ScrollView</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/using-a-listview.html">Using List Views</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/network.html">Networking</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/more-resources.html">More Resources</a></li></ul></div><div class="navGroup navGroupActive"><h3>Guides</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/components-and-apis.html">Components and APIs</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/platform-specific-code.html">Platform Specific Code</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/navigation.html">Navigating Between Screens</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/images.html">Images</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/animations.html">Animations</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/accessibility.html">Accessibility</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/improvingux.html">Improving User Experience</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/timers.html">Timers</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/debugging.html">Debugging</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/performance.html">Performance</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/gesture-responder-system.html">Gesture Responder System</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/javascript-environment.html">JavaScript Environment</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/direct-manipulation.html">Direct Manipulation</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/colors.html">Color Reference</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/integration-with-existing-apps.html">Integration with Existing Apps</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/building-for-apple-tv.html">Building For TV Devices</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/running-on-device.html">Running On Device</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/upgrading.html">Upgrading to new React Native versions</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/troubleshooting.html">Troubleshooting</a></li></ul></div><div class="navGroup navGroupActive"><h3>Guides (iOS)</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/native-modules-ios.html">Native Modules</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/native-components-ios.html">Native UI Components</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/linking-libraries-ios.html">Linking Libraries</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/running-on-simulator-ios.html">Running On Simulator</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/communication-ios.html">Communication between native and React Native</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/app-extensions.html">App Extensions</a></li></ul></div><div class="navGroup navGroupActive"><h3>Guides (Android)</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/native-modules-android.html">Native Modules</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/native-components-android.html">Native UI Components</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/headless-js-android.html">Headless JS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/signed-apk-android.html">Generating Signed APK</a></li></ul></div><div class="navGroup navGroupActive"><h3>Contributing</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/contributing.html">How to Contribute</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/maintainers.html">What to Expect from Maintainers</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/building-from-source.html">Building React Native from source</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/testing.html">Testing your Changes</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/understanding-cli.html">Understanding the CLI</a></li></ul></div><div class="navGroup navGroupActive"><h3>Components</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/activityindicator.html">ActivityIndicator</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/button.html">Button</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/datepickerios.html">DatePickerIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/drawerlayoutandroid.html">DrawerLayoutAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/flatlist.html">FlatList</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/image.html">Image</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/keyboardavoidingview.html">KeyboardAvoidingView</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/listview.html">ListView</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/maskedviewios.html">MaskedViewIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/modal.html">Modal</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/navigatorios.html">NavigatorIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/picker.html">Picker</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/pickerios.html">PickerIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/progressbarandroid.html">ProgressBarAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/progressviewios.html">ProgressViewIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/refreshcontrol.html">RefreshControl</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/safeareaview.html">SafeAreaView</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/scrollview.html">ScrollView</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/sectionlist.html">SectionList</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/segmentedcontrolios.html">SegmentedControlIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/slider.html">Slider</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/snapshotviewios.html">SnapshotViewIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/statusbar.html">StatusBar</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/switch.html">Switch</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/tabbarios.html">TabBarIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/tabbarios-item.html">TabBarIOS.Item</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/text.html">Text</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="https://facebook.github.io/react-native/docs/textinput.html">TextInput</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/toolbarandroid.html">ToolbarAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/touchablehighlight.html">TouchableHighlight</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/touchablenativefeedback.html">TouchableNativeFeedback</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/touchableopacity.html">TouchableOpacity</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html">TouchableWithoutFeedback</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/view.html">View</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/viewpagerandroid.html">ViewPagerAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/virtualizedlist.html">VirtualizedList</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/webview.html">WebView</a></li></ul></div><div class="navGroup navGroupActive"><h3>APIs</h3><ul><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/accessibilityinfo.html">AccessibilityInfo</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/actionsheetios.html">ActionSheetIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/alert.html">Alert</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/alertios.html">AlertIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/animated.html">Animated</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/appregistry.html">AppRegistry</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/appstate.html">AppState</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/asyncstorage.html">AsyncStorage</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/backandroid.html">BackAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/backhandler.html">BackHandler</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/cameraroll.html">CameraRoll</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/clipboard.html">Clipboard</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/datepickerandroid.html">DatePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/dimensions.html">Dimensions</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/easing.html">Easing</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/geolocation.html">Geolocation</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/imageeditor.html">ImageEditor</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/imagepickerios.html">ImagePickerIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/imagestore.html">ImageStore</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/image-style-props.html">Image Style Props</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/interactionmanager.html">InteractionManager</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/keyboard.html">Keyboard</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/layout-props.html">Layout Props</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/layoutanimation.html">LayoutAnimation</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/linking.html">Linking</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/listviewdatasource.html">ListViewDataSource</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/netinfo.html">NetInfo</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/panresponder.html">PanResponder</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/permissionsandroid.html">PermissionsAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/pixelratio.html">PixelRatio</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/pushnotificationios.html">PushNotificationIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/shadow-props.html">Shadow Props</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/share.html">Share</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/statusbarios.html">StatusBarIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/stylesheet.html">StyleSheet</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/systrace.html">Systrace</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/text-style-props.html">Text Style Props</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/timepickerandroid.html">TimePickerAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/toastandroid.html">ToastAndroid</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/transforms.html">Transforms</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/vibration.html">Vibration</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/vibrationios.html">VibrationIOS</a></li><li class="navListItem"><a class="navItem" href="https://facebook.github.io/react-native/docs/view-style-props.html">View Style Props</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/facebook/react-native-website/blob/master/docs/textinput.md" target="_blank">Edit</a><h1>TextInput</h1></header><article><div><span><p>A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.</p>
+<p>The simplest use case is to plop down a <code>TextInput</code> and subscribe to the <code>onChangeText</code> events to read the user input. There are also other events, such as <code>onSubmitEditing</code> and <code>onFocus</code> that can be subscribed to. A simple example:</p>
+<div class="web-player desktop"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { AppRegistry, TextInput } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UselessTextInput</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">constructor</span>(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = { <span class="hljs-attr">text</span>: <span class="hljs-string">'Useless Placeholder'</span> };
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">{{height:</span> <span class="hljs-attr">40</span>, <span class="hljs-attr">borderColor:</span> '<span class="hljs-attr">gray</span>', <span class="hljs-attr">borderWidth:</span> <span class="hljs-attr">1</span>}}
+        <span class="hljs-attr">onChangeText</span>=<span class="hljs-string">{(text)</span> =&gt;</span> this.setState({text})}
+        value={this.state.text}
+      /&gt;
+    );
+  }
+}
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () =&gt; UselessTextInput);
+</span></code></pre><iframe style="margin-top: 4" width="880" height="420" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v1.10.0/index.html#code=import%20React%2C%20%7B%20Component%20%7D%20from%20&#39;react&#39;%3B%0Aimport%20%7B%20AppRegistry%2C%20TextInput%20%7D%20from%20&#39;react-native&#39;%3B%0A%0Aexport%20default%20class%20UselessTextInput%20extends%20Component%20%7B%0A%20%20constructor(props)%20%7B%0A%20%20%20%20super(props)%3B%0A%20%20%20%20this.state%20%3D%20%7B%20text%3A%20&#39;Useless%20Placeholder&#39;%20%7D%3B%0A%20%20%7D%0A%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CTextInput%0A%20%20%20%20%20%20%20%20style%3D%7B%7Bheight%3A%2040%2C%20borderColor%3A%20&#39;gray&#39;%2C%20borderWidth%3A%201%7D%7D%0A%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7Btext%7D)%7D%0A%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%2F%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0A%2F%2F%20skip%20this%20line%20if%20using%20Create%20React%20Native%20App%0AAppRegistry.registerComponent(&#39;AwesomeProject&#39;%2C%20()%20%3D%3E%20UselessTextInput)%3B%0A" frame-border="0" src="./TextInput · React Native_files/index.html"></iframe></div>
+
+<p>Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.</p>
+<p>Note that some props are only available with <code>multiline={true/false}</code>. Additionally, border styles that apply to only one side of the element (e.g., <code>borderBottomColor</code>, <code>borderLeftWidth</code>, etc.) will not be applied if <code>multiline=false</code>. To achieve the same effect, you can wrap your <code>TextInput</code> in a <code>View</code>:</p>
+<div class="web-player desktop"><pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { AppRegistry, View, TextInput } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UselessTextInput</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;TextInput
+        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+        editable = {true}
+        maxLength = {40}
+      /&gt;
+    );
+  }
+}
+
+export default class UselessTextInputMultiline extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: 'Useless Multiline Placeholder',
+    };
+  }
+
+  // If you type something in the text box that is a color, the background will change to that
+  // color.
+  render() {
+    return (
+     &lt;View style={{
+       backgroundColor: this.state.text,
+       borderBottomColor: '#000000',
+       borderBottomWidth: 1 }}
+     &gt;
+       &lt;UselessTextInput
+         multiline = {true}
+         numberOfLines = {4}
+         onChangeText={(text) =&gt; this.setState({text})}
+         value={this.state.text}
+       /&gt;
+     &lt;/View&gt;
+    );
+  }
+}
+
+// skip these lines if using Create React Native App
+AppRegistry.registerComponent(
+ 'AwesomeProject',
+ () =&gt; UselessTextInputMultiline
+);
+</code></pre><iframe style="margin-top: 4" width="880" height="420" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v1.10.0/index.html#code=import%20React%2C%20%7B%20Component%20%7D%20from%20&#39;react&#39;%3B%0Aimport%20%7B%20AppRegistry%2C%20View%2C%20TextInput%20%7D%20from%20&#39;react-native&#39;%3B%0A%0Aclass%20UselessTextInput%20extends%20Component%20%7B%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%3CTextInput%0A%20%20%20%20%20%20%20%20%7B...this.props%7D%20%2F%2F%20Inherit%20any%20props%20passed%20to%20it%3B%20e.g.%2C%20multiline%2C%20numberOfLines%20below%0A%20%20%20%20%20%20%20%20editable%20%3D%20%7Btrue%7D%0A%20%20%20%20%20%20%20%20maxLength%20%3D%20%7B40%7D%0A%20%20%20%20%20%20%2F%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0Aexport%20default%20class%20UselessTextInputMultiline%20extends%20Component%20%7B%0A%20%20constructor(props)%20%7B%0A%20%20%20%20super(props)%3B%0A%20%20%20%20this.state%20%3D%20%7B%0A%20%20%20%20%20%20text%3A%20&#39;Useless%20Multiline%20Placeholder&#39;%2C%0A%20%20%20%20%7D%3B%0A%20%20%7D%0A%0A%20%20%2F%2F%20If%20you%20type%20something%20in%20the%20text%20box%20that%20is%20a%20color%2C%20the%20background%20will%20change%20to%20that%0A%20%20%2F%2F%20color.%0A%20%20render()%20%7B%0A%20%20%20%20return%20(%0A%20%20%20%20%20%3CView%20style%3D%7B%7B%0A%20%20%20%20%20%20%20backgroundColor%3A%20this.state.text%2C%0A%20%20%20%20%20%20%20borderBottomColor%3A%20&#39;%23000000&#39;%2C%0A%20%20%20%20%20%20%20borderBottomWidth%3A%201%20%7D%7D%0A%20%20%20%20%20%3E%0A%20%20%20%20%20%20%20%3CUselessTextInput%0A%20%20%20%20%20%20%20%20%20multiline%20%3D%20%7Btrue%7D%0A%20%20%20%20%20%20%20%20%20numberOfLines%20%3D%20%7B4%7D%0A%20%20%20%20%20%20%20%20%20onChangeText%3D%7B(text)%20%3D%3E%20this.setState(%7Btext%7D)%7D%0A%20%20%20%20%20%20%20%20%20value%3D%7Bthis.state.text%7D%0A%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%3C%2FView%3E%0A%20%20%20%20)%3B%0A%20%20%7D%0A%7D%0A%0A%2F%2F%20skip%20these%20lines%20if%20using%20Create%20React%20Native%20App%0AAppRegistry.registerComponent(%0A%20&#39;AwesomeProject&#39;%2C%0A%20()%20%3D%3E%20UselessTextInputMultiline%0A)%3B%0A" frame-border="0" src="./TextInput · React Native_files/index(1).html"></iframe></div>
+
+<p><code>TextInput</code> has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this is to either not set height explicitly, case in which the system will take care of displaying the border in the correct position, or to not display the border by setting <code>underlineColorAndroid</code> to transparent.</p>
+<p>Note that on Android performing text selection in input can change app's activity <code>windowSoftInputMode</code> param to <code>adjustResize</code>. This may cause issues with components that have position: 'absolute' while keyboard is active. To avoid this behavior either specify <code>windowSoftInputMode</code> in AndroidManifest.xml ( <a href="https://developer.android.com/guide/topics/manifest/activity-element.html">https://developer.android.com/guide/topics/manifest/activity-element.html</a> ) or control this param programmatically with native code.</p>
+<h3><a class="anchor" aria-hidden="true" id="props"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#props" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Props</h3>
+<ul>
+<li><a href="https://facebook.github.io/react-native/docs/view.html#props">View props...</a></li>
+</ul>
+<ul>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#placeholdertextcolor"><code>placeholderTextColor</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#allowfontscaling"><code>allowFontScaling</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#autocorrect"><code>autoCorrect</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#autofocus"><code>autoFocus</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#bluronsubmit"><code>blurOnSubmit</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#carethidden"><code>caretHidden</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#contextMenuHidden"><code>contextMenuHidden</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#defaultvalue"><code>defaultValue</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#editable"><code>editable</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#keyboardtype"><code>keyboardType</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#maxheight"><code>maxHeight</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#maxlength"><code>maxLength</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#multiline"><code>multiline</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onblur"><code>onBlur</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onchange"><code>onChange</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onchangetext"><code>onChangeText</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#oncontentsizechange"><code>onContentSizeChange</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onendediting"><code>onEndEditing</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onfocus"><code>onFocus</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onlayout"><code>onLayout</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onscroll"><code>onScroll</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onselectionchange"><code>onSelectionChange</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onsubmitediting"><code>onSubmitEditing</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#placeholder"><code>placeholder</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#autocapitalize"><code>autoCapitalize</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#returnkeytype"><code>returnKeyType</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#securetextentry"><code>secureTextEntry</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#selecttextonfocus"><code>selectTextOnFocus</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#selection"><code>selection</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#selectioncolor"><code>selectionColor</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#style"><code>style</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#value"><code>value</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#autogrow"><code>autoGrow</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#disablefullscreenui"><code>disableFullscreenUI</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#inlineimageleft"><code>inlineImageLeft</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#inlineimagepadding"><code>inlineImagePadding</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#numberoflines"><code>numberOfLines</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#returnkeylabel"><code>returnKeyLabel</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#textbreakstrategy"><code>textBreakStrategy</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#underlinecolorandroid"><code>underlineColorAndroid</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#clearbuttonmode"><code>clearButtonMode</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#cleartextonfocus"><code>clearTextOnFocus</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#datadetectortypes"><code>dataDetectorTypes</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#enablesreturnkeyautomatically"><code>enablesReturnKeyAutomatically</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#keyboardappearance"><code>keyboardAppearance</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#onkeypress"><code>onKeyPress</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#selectionstate"><code>selectionState</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#spellcheck"><code>spellCheck</code></a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="methods"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#methods" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h3>
+<ul>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#isfocused"><code>isFocused</code></a></li>
+<li><a href="https://facebook.github.io/react-native/docs/textinput.html#clear"><code>clear</code></a></li>
+</ul>
+<hr>
+<h1><a class="anchor" aria-hidden="true" id="reference"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#reference" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reference</h1>
+<h2><a class="anchor" aria-hidden="true" id="props"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#props" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Props</h2>
+<h3><a class="anchor" aria-hidden="true" id="placeholdertextcolor"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#placeholdertextcolor" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>placeholderTextColor</code></h3>
+<p>The text color of the placeholder string.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://facebook.github.io/react-native/docs/colors.html">color</a></td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="allowfontscaling"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#allowfontscaling" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>allowFontScaling</code></h3>
+<p>Specifies whether fonts should scale to respect Text Size accessibility settings. The default is <code>true</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="autocorrect"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#autocorrect" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>autoCorrect</code></h3>
+<p>If <code>false</code>, disables auto-correct. The default value is <code>true</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="autofocus"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#autofocus" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>autoFocus</code></h3>
+<p>If <code>true</code>, focuses the input on <code>componentDidMount</code>. The default value is <code>false</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="bluronsubmit"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#bluronsubmit" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>blurOnSubmit</code></h3>
+<p>If <code>true</code>, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting <code>blurOnSubmit</code> to <code>true</code> means that pressing return will blur the field and trigger the <code>onSubmitEditing</code> event instead of inserting a newline into the field.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="carethidden"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#carethidden" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>caretHidden</code></h3>
+<p>If <code>true</code>, caret is hidden. The default value is <code>false</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="contextmenuhidden"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#contextmenuhidden" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>contextMenuHidden</code></h3>
+<p>If <code>true</code>, context menu is hidden. The default value is <code>false</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="defaultvalue"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#defaultvalue" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>defaultValue</code></h3>
+<p>Provides an initial value that will change when the user starts typing. Useful for simple use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>string</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="editable"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#editable" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>editable</code></h3>
+<p>If <code>false</code>, text is not editable. The default value is <code>true</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="keyboardtype"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#keyboardtype" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>keyboardType</code></h3>
+<p>Determines which keyboard to open, e.g.<code>numeric</code>.</p>
+<p>The following values work across platforms:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>numeric</code></li>
+<li><code>email-address</code></li>
+<li><code>phone-pad</code></li>
+</ul>
+<p><em>iOS Only</em></p>
+<p>The following values work on iOS only:</p>
+<ul>
+<li><code>ascii-capable</code></li>
+<li><code>numbers-and-punctuation</code></li>
+<li><code>url</code></li>
+<li><code>number-pad</code></li>
+<li><code>name-phone-pad</code></li>
+<li><code>decimal-pad</code></li>
+<li><code>twitter</code></li>
+<li><code>web-search</code></li>
+</ul>
+<p><em>Android Only</em></p>
+<p>The following values work on Android only:</p>
+<ul>
+<li><code>visible-password</code></li>
+</ul>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password')</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="maxheight"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#maxheight" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>maxHeight</code></h3>
+<p>If autogrow is <code>true</code>, limits the height that the TextInput box can grow to. Once it reaches this height, the TextInput becomes scrollable.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>number</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="maxlength"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#maxlength" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>maxLength</code></h3>
+<p>Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>number</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="multiline"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#multiline" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>multiline</code></h3>
+<p>If <code>true</code>, the text input can be multiple lines. The default value is <code>false</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onblur"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onblur" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onBlur</code></h3>
+<p>Callback that is called when the text input is blurred.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onchange"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onchange" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onChange</code></h3>
+<p>Callback that is called when the text input's text changes.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onchangetext"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onchangetext" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onChangeText</code></h3>
+<p>Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="oncontentsizechange"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#oncontentsizechange" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onContentSizeChange</code></h3>
+<p>Callback that is called when the text input's content size changes. This will be called with <code>{ nativeEvent: { contentSize: { width, height } } }</code>.</p>
+<p>Only called for multiline text inputs.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onendediting"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onendediting" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onEndEditing</code></h3>
+<p>Callback that is called when text input ends.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onfocus"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onfocus" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onFocus</code></h3>
+<p>Callback that is called when the text input is focused.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onlayout"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onlayout" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onLayout</code></h3>
+<p>Invoked on mount and layout changes with <code>{x, y, width, height}</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onscroll"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onscroll" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onScroll</code></h3>
+<p>Invoked on content scroll with <code>{ nativeEvent: { contentOffset: { x, y } } }</code>. May also contain other properties from ScrollEvent but on Android contentSize is not provided for performance reasons.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onselectionchange"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onselectionchange" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onSelectionChange</code></h3>
+<p>Callback that is called when the text input selection is changed. This will be called with <code>{ nativeEvent: { selection: { start, end } } }</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onsubmitediting"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onsubmitediting" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onSubmitEditing</code></h3>
+<p>Callback that is called when the text input's submit button is pressed. Invalid if <code>multiline={true}</code> is specified.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="placeholder"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#placeholder" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>placeholder</code></h3>
+<p>The string that will be rendered before text input has been entered.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>string</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="autocapitalize"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#autocapitalize" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>autoCapitalize</code></h3>
+<p>Can tell <code>TextInput</code> to automatically capitalize certain characters.</p>
+<ul>
+<li><code>characters</code>: all characters.</li>
+<li><code>words</code>: first letter of each word.</li>
+<li><code>sentences</code>: first letter of each sentence (<em>default</em>).</li>
+<li><code>none</code>: don't auto capitalize anything.</li>
+</ul>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('none', 'sentences', 'words', 'characters')</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="returnkeytype"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#returnkeytype" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>returnKeyType</code></h3>
+<p>Determines how the return key should look. On Android you can also use <code>returnKeyLabel</code>.</p>
+<p><em>Cross platform</em></p>
+<p>The following values work across platforms:</p>
+<ul>
+<li><code>done</code></li>
+<li><code>go</code></li>
+<li><code>next</code></li>
+<li><code>search</code></li>
+<li><code>send</code></li>
+</ul>
+<p><em>Android Only</em></p>
+<p>The following values work on Android only:</p>
+<ul>
+<li><code>none</code></li>
+<li><code>previous</code></li>
+</ul>
+<p><em>iOS Only</em></p>
+<p>The following values work on iOS only:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>emergency-call</code></li>
+<li><code>google</code></li>
+<li><code>join</code></li>
+<li><code>route</code></li>
+<li><code>yahoo</code></li>
+</ul>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo')</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="securetextentry"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#securetextentry" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>secureTextEntry</code></h3>
+<p>If <code>true</code>, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is <code>false</code>. Does not work with 'multiline={true}'.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="selecttextonfocus"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#selecttextonfocus" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>selectTextOnFocus</code></h3>
+<p>If <code>true</code>, all text will automatically be selected on focus.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="selection"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#selection" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>selection</code></h3>
+<p>The start and end of the text input's selection. Set start and end to the same value to position the cursor.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>object: {start: number,end: number}</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="selectioncolor"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#selectioncolor" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>selectionColor</code></h3>
+<p>The highlight and cursor color of the text input.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://facebook.github.io/react-native/docs/colors.html">color</a></td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="style"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#style" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>style</code></h3>
+<p>Note that not all Text styles are supported, an incomplete list of what is not supported includes:</p>
+<ul>
+<li><code>borderLeftWidth</code></li>
+<li><code>borderTopWidth</code></li>
+<li><code>borderRightWidth</code></li>
+<li><code>borderBottomWidth</code></li>
+<li><code>borderTopLeftRadius</code></li>
+<li><code>borderTopRightRadius</code></li>
+<li><code>borderBottomRightRadius</code></li>
+<li><code>borderBottomLeftRadius</code></li>
+</ul>
+<p>see <a href="https://github.com/facebook/react-native/issues/7070">Issue#7070</a> for more detail.</p>
+<p><a href="https://facebook.github.io/react-native/docs/style.html">Styles</a></p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://facebook.github.io/react-native/docs/text.html#style">Text</a></td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="value"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#value" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>value</code></h3>
+<p>The value to show for the text input. <code>TextInput</code> is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set <code>editable={false}</code>, or set/update <code>maxLength</code> to prevent unwanted edits without flicker.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th></tr>
+</thead>
+<tbody>
+<tr><td>string</td><td>No</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="disablefullscreenui"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#disablefullscreenui" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>disableFullscreenUI</code></h3>
+<p>When <code>false</code>, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When <code>true</code>, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to <code>false</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="inlineimageleft"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#inlineimageleft" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>inlineImageLeft</code></h3>
+<p>If defined, the provided image resource will be rendered on the left. The image resource must be inside <code>/android/app/src/main/res/drawable</code> and referenced like</p>
+<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span>
+ <span class="hljs-attr">inlineImageLeft</span>=<span class="hljs-string">'search_icon'</span>
+/&gt;</span>
+</code></pre>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>string</td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="inlineimagepadding"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#inlineimagepadding" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>inlineImagePadding</code></h3>
+<p>Padding between the inline image, if any, and the text input itself.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>number</td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="numberoflines"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#numberoflines" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>numberOfLines</code></h3>
+<p>Sets the number of lines for a <code>TextInput</code>. Use it with multiline set to <code>true</code> to be able to fill the lines.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>number</td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="returnkeylabel"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#returnkeylabel" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>returnKeyLabel</code></h3>
+<p>Sets the return key to the label. Use it instead of <code>returnKeyType</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>string</td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="textbreakstrategy"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#textbreakstrategy" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>textBreakStrategy</code></h3>
+<p>Set text break strategy on Android API Level 23+, possible values are <code>simple</code>, <code>highQuality</code>, <code>balanced</code> The default value is <code>simple</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('simple', 'highQuality', 'balanced')</td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="underlinecolorandroid"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#underlinecolorandroid" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>underlineColorAndroid</code></h3>
+<p>The color of the <code>TextInput</code> underline.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://facebook.github.io/react-native/docs/colors.html">color</a></td><td>No</td><td>Android</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="clearbuttonmode"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#clearbuttonmode" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>clearButtonMode</code></h3>
+<p>When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('never', 'while-editing', 'unless-editing', 'always')</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="cleartextonfocus"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#cleartextonfocus" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>clearTextOnFocus</code></h3>
+<p>If <code>true</code>, clears the text field automatically when editing begins.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="datadetectortypes"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#datadetectortypes" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataDetectorTypes</code></h3>
+<p>Determines the types of data converted to clickable URLs in the text input. Only valid if <code>multiline={true}</code> and <code>editable={false}</code>. By default no data types are detected.</p>
+<p>You can provide one type or an array of many types.</p>
+<p>Possible values for <code>dataDetectorTypes</code> are:</p>
+<ul>
+<li><code>'phoneNumber'</code></li>
+<li><code>'link'</code></li>
+<li><code>'address'</code></li>
+<li><code>'calendarEvent'</code></li>
+<li><code>'none'</code></li>
+<li><code>'all'</code></li>
+</ul>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all')</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="enablesreturnkeyautomatically"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#enablesreturnkeyautomatically" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>enablesReturnKeyAutomatically</code></h3>
+<p>If <code>true</code>, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is <code>false</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="keyboardappearance"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#keyboardappearance" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>keyboardAppearance</code></h3>
+<p>Determines the color of the keyboard.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>enum('default', 'light', 'dark')</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onkeypress"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#onkeypress" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onKeyPress</code></h3>
+<p>Callback that is called when a key is pressed. This will be called with <code>{ nativeEvent: { key: keyValue } }</code> where <code>keyValue</code> is <code>'Enter'</code> or <code>'Backspace'</code> for respective keys and the typed-in character otherwise including <code>' '</code> for space. Fires before <code>onChange</code> callbacks.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>function</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="selectionstate"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#selectionstate" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>selectionState</code></h3>
+<p>An instance of <code>DocumentSelectionState</code>, this is some state that is responsible for maintaining selection information for a document.</p>
+<p>Some functionality that can be performed with this instance is:</p>
+<ul>
+<li><code>blur()</code></li>
+<li><code>focus()</code></li>
+<li><code>update()</code></li>
+</ul>
+<blockquote>
+<p>You can reference <code>DocumentSelectionState</code> in <a href="https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js"><code>vendor/document/selection/DocumentSelectionState.js</code></a></p>
+</blockquote>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>DocumentSelectionState</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="spellcheck"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#spellcheck" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>spellCheck</code></h3>
+<p>If <code>false</code>, disables spell-check style (i.e. red underlines). The default value is inherited from <code>autoCorrect</code>.</p>
+<table>
+<thead>
+<tr><th>Type</th><th>Required</th><th>Platform</th></tr>
+</thead>
+<tbody>
+<tr><td>bool</td><td>No</td><td>iOS</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="methods"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#methods" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h2>
+<h3><a class="anchor" aria-hidden="true" id="isfocused"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#isfocused" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>isFocused()</code></h3>
+<pre><code class="hljs css javascript">isFocused():
+</code></pre>
+<p>Returns <code>true</code> if the input is currently focused; <code>false</code> otherwise.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="clear"></a><a href="https://facebook.github.io/react-native/docs/textinput.html#clear" aria-hidden="true" class="hash-link"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>clear()</code></h3>
+<pre><code class="hljs css javascript">clear();
+</code></pre>
+<p>Removes all text from the <code>TextInput</code>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="https://facebook.github.io/react-native/docs/text.html">← Text</a><a class="docs-next button" href="https://facebook.github.io/react-native/docs/toolbarandroid.html">ToolbarAndroid →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://facebook.github.io/react-native/" class="nav-home"><img src="./TextInput · React Native_files/header_logo.png" alt="React Native" width="66" height="58"></a><div><h5><a href="https://facebook.github.io/react-native/docs/getting-started.html">Docs</a></h5><a href="https://facebook.github.io/react-native/docs/getting-started.html">Getting Started</a><a href="https://facebook.github.io/react-native/docs/tutorial.html">Tutorial</a><a href="https://facebook.github.io/react-native/docs/components-and-apis.html">Components and APIs</a><a href="https://facebook.github.io/react-native/docs/more-resources.html">More Resources</a></div><div><h5><a href="https://facebook.github.io/react-native/help.html">Community</a></h5><a href="https://facebook.github.io/react-native/showcase.html">Who's using React Native?</a><a href="http://stackoverflow.com/questions/tagged/react-native" target="_blank">Stack Overflow</a><a href="https://discuss.reactjs.org/" target="_blank">Discussion Forum</a><a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Chat</a></div><div><h5>More</h5><a href="https://facebook.github.io/react-native/blog">Blog</a><a href="https://twitter.com/reactnative" target="_blank">Twitter</a><a href="https://github.com/facebook/react-native" target="_blank">GitHub</a><a href="http://reactjs.org/" target="_blank">React</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="./TextInput · React Native_files/oss_logo.png" alt="Facebook Open Source" width="170" height="45"></a><section class="copyright">Copyright © 2018 Facebook Inc.</section></footer></div><script type="text/javascript" src="./TextInput · React Native_files/docsearch.min.js.download"></script><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-41298772-2', 'auto');
+              ga('send', 'pageview');
+            </script><script>window.fbAsyncInit = function() {FB.init({appId:'1677033832619985',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+              var search = docsearch({
+                
+                apiKey: '2c98749b4a1e588efec53b2acec13025',
+                indexName: 'react-native-versions',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {"facetFilters":["tags:current"],"hitsPerPage":5}
+              });
+            </script><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./TextInput · React Native_files/widget_iframe.4ed13d9ce94e60c41048ece32559b04c.html" style="display: none;"></iframe><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./TextInput · React Native_files/FdM1l_dpErI.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./TextInput · React Native_files/saved_resource.html"></iframe></body></html>
